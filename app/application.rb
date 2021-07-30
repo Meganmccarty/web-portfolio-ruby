@@ -1,8 +1,11 @@
 class Application
     def call(env)
-        response = Rack::Response.new
-        request = Rack::Request.new(env)
+        resp = Rack::Response.new
+        req = Rack::Request.new(env)
   
-        # handle all routes and send appropriate responses
+        if req.path.match(/projects/) && req.get?
+            projects = Project.render_all
+            return [200, { 'Content-Type' => 'application/json' }, [{projects: projects, message: 'response success' }.to_json]]
+        end
     end
 end
