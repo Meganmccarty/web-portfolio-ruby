@@ -14,4 +14,9 @@ class Project < ActiveRecord::Base
             }
         end
     end
+
+    def self.find_by_path(path)
+        id = path.split("/projects/")[1].to_i
+        Project.find_by_id(id)
+    end
 end
