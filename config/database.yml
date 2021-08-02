@@ -1,5 +1,36 @@
-development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+# development:
+#   adapter: sqlite3
+#   database: db/development.sqlite3
+#   pool: 5
+#   timeout: 5000
+
+# production:
+#   adapter: postgresql
+#   database: db/production
+#   pool: 5
+#   timeout: 5000
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   timeout: 5000
+
+development:
+  <<: *default
+  database: db/web-portfolio-ruby_dev
+
+test:
+  <<: *default
+  database: db/web-portfolio-ruby_test
+
+staging:
+  <<: *default
+  database: db/web-portfolio-ruby
+
+production:
+  <<: *default
+  database: db/web-portfolio-ruby
