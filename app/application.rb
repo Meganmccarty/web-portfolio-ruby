@@ -57,6 +57,26 @@ class Application
                     [{message: "project not found"}.to_json]
                 ]
             end
+
+        elsif req.path.match(/messages/) && req.get?
+            messages = Message.render_all
+
+            return [
+                200,
+                { 'Content-Type' => 'application/json' },
+                [{ messages: messages, fetch_message: 'response successful'}.to_json]
+            ]
+
+        elsif req.path.match(/messages/) && req.post?
+            incomingData = JSON.parse(req.body.read)
+            newMessage = Message.create(incomingData)
+
+            return [
+                200,
+                { 'Content-Type' => 'application/json' },
+                [{ message: newMessage, fetch_message: 'response_successful' }.to_json]
+            ]
+
         end
     end
 end
