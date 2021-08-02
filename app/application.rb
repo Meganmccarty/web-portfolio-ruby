@@ -2,14 +2,23 @@ class Application
     def call(env)
         resp = Rack::Response.new
         req = Rack::Request.new(env)
+
+        if req.path.match(/skills/) && req.get?
+            skills = Skill.render_all
+
+            return [
+                200,
+                { 'Content-Type' => 'application/json' },
+                [{ skills: skills, message: 'response successful'}.to_json]
+            ]
   
-        if req.path.match(/projects/) && req.get?
+        elsif req.path.match(/projects/) && req.get?
             projects = Project.render_all
             
             return [
                 200,
                 { 'Content-Type' => 'application/json' },
-                [{projects: projects, message: 'response successful' }.to_json]
+                [{ projects: projects, message: 'response successful' }.to_json]
             ]
         
         elsif req.path.match(/projects/) && req.patch?
