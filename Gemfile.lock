@@ -52,6 +52,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 6.1)
+  concurrent-ruby (~> 1.1.9)
   pg (~> 1.2.3)
   pry (~> 0.14.1)
   rack (~> 2.2)
