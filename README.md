@@ -13,8 +13,8 @@ To create your own copy of this project:
 5. Type `cd web-portfolio-ruby` and hit enter
 6. Run `bundle install`
 7. Run `rake db:migrate`
-    Optional: edit the `seed.rb` file and add in your own data, then run `rake db:seed`
-7. Run `shotgun`
+    - Optional: edit the `seed.rb` file and add in your own data, then run `rake db:seed`
+8. Run `shotgun`
 
 The website should open up in a new browser tab at `http://localhost:9393`. The main route shouldn't have anything, but you can navigate to one of three endpoints: `/projects`, `/skills`, and `/messages`
 
