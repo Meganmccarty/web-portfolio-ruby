@@ -2,7 +2,8 @@ class Project < ActiveRecord::Base
     has_and_belongs_to_many :tags
 
     def self.render_all
-        Project.all.map do |project|
+        projects = Project.order(:order)
+        projects.map do |project|
             {
                 id: project.id,
                 name: project.name,
