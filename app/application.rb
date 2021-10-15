@@ -37,6 +37,7 @@ class Application
                             text: project.text,
                             image: project.image,
                             url: project.url,
+                            demo: project.demo,
                             likes: project.likes,
                             tags: project.tags
                         }, message: 'patch successful' }.to_json]

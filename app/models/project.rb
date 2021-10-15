@@ -10,6 +10,7 @@ class Project < ActiveRecord::Base
                 text: project.text,
                 image: project.image,
                 url: project.url,
+                demo: project.demo,
                 likes: project.likes,
                 tags: project.tags
             }
